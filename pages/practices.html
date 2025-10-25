@@ -4,37 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Практики - Семестровая работа</title>
+    <link rel="stylesheet" href="../style/base.css">
+    <link rel="stylesheet" href="../style/practices.css">
 </head>
 <body>
-    <div id="header">Хэдер</div>
-    <div id="menu">
-        <ul>
-            <li><a href="../index.html">Главная</a></li>
-            <li><a href="news.html">Новости</a></li>
-            <li><a href="practices.html">Практики</a></li>
-            <li><a href="goods.html">Товары</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-        </ul>
-    </div>
-    <div id="content">
-        <h1>Практики</h1>
-        
-        <div>
-            <h2>Практические задания</h2>
-            <p>На данной странице будут размещены практические задания и упражнения по веб-разработке.</p>
-            <p>Страница находится в разработке...</p>
-        </div>
-        
-        <div>
-            <h3>Планируемые разделы:</h3>
-            <ul>
-                <li>HTML и CSS практики</li>
-                <li>JavaScript упражнения</li>
-                <li>Проектные задания</li>
-                <li>Тестовые работы</li>
+    <div class="page-container">
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link active" href="practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
             </ul>
         </div>
+        <div class="content">
+            <div class="page-header">
+                <h1 class="page-title">Практики</h1>
+                <p class="page-subtitle">Практические задания и упражнения</p>
+            </div>
+            
+            <div class="practices-container">
+                <div class="practice-intro">
+                    <h2 class="practice-section-title">Практические задания</h2>
+                    <p class="practice-description">На данной странице будут размещены практические задания и упражнения по веб-разработке. Здесь вы найдете различные проекты для отработки навыков программирования.</p>
+                    <div class="status-badge">
+                        <span class="status-text">Страница в разработке</span>
+                    </div>
+                </div>
+                
+                <div class="planned-sections">
+                    <h3 class="sections-title">Планируемые разделы:</h3>
+                    <div class="sections-grid">
+                        <div class="section-card">
+                            <div class="section-icon">📝</div>
+                            <h4 class="section-card-title">HTML и CSS практики</h4>
+                            <p class="section-card-desc">Основы верстки и стилизации</p>
+                        </div>
+                        
+                        <div class="section-card">
+                            <div class="section-icon">⚡</div>
+                            <h4 class="section-card-title">JavaScript упражнения</h4>
+                            <p class="section-card-desc">Интерактивность и логика</p>
+                        </div>
+                        
+                        <div class="section-card">
+                            <div class="section-icon">🚀</div>
+                            <h4 class="section-card-title">Проектные задания</h4>
+                            <p class="section-card-desc">Полноценные веб-приложения</p>
+                        </div>
+                        
+                        <div class="section-card">
+                            <div class="section-icon">📊</div>
+                            <h4 class="section-card-title">Тестовые работы</h4>
+                            <p class="section-card-desc">Проверка знаний и навыков</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">Футер</div>
     </div>
-    <div id="footer">Футер</div>
 </body>
 </html>

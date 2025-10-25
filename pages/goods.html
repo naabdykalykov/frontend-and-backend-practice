@@ -4,57 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Товары - Семестровая работа</title>
+    <link rel="stylesheet" href="../style/base.css">
+    <link rel="stylesheet" href="../style/goods.css">
 </head>
 <body>
-    <div id="header">Хэдер</div>
-    <div id="menu">
-        <ul>
-            <li><a href="../index.html">Главная</a></li>
-            <li><a href="news.html">Новости</a></li>
-            <li><a href="practices.html">Практики</a></li>
-            <li><a href="goods.html">Товары</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-        </ul>
+    <div class="page-container">
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link active" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="page-header">
+                <h1 class="page-title">Каталог товаров</h1>
+                <p class="page-subtitle">Лучшие предложения для вашего комфорта</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../images/laptop.png" alt="Ноутбук для работы">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Ноутбук для работы</h3>
+                        <p class="product-price">85,000 руб.</p>
+                        <button class="product-btn">Купить</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../images/headphones.png" alt="Наушники премиум">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Наушники премиум</h3>
+                        <p class="product-price">12,500 руб.</p>
+                        <button class="product-btn">Купить</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../images/monitor.png" alt="Монитор игровой">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Монитор игровой</h3>
+                        <p class="product-price">35,000 руб.</p>
+                        <button class="product-btn">Купить</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../images/smartphone.png" alt="Смартфон флагман">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Смартфон флагман</h3>
+                        <p class="product-price">65,000 руб.</p>
+                        <button class="product-btn">Купить</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../images/deskСhair.png" alt="Офисное кресло">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Офисное кресло</h3>
+                        <p class="product-price">25,000 руб.</p>
+                        <button class="product-btn">Купить</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../images/lamp.png" alt="Настольная лампа">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Настольная лампа</h3>
+                        <p class="product-price">4,500 руб.</p>
+                        <button class="product-btn">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">Футер</div>
     </div>
-    <div id="content">
-        <h1>Каталог товаров</h1>
-        
-        <div>
-            <img src="../images/laptop.png" alt="Товар 1" width="200" height="150">
-            <h3>Ноутбук для работы</h3>
-            <p><strong>Цена:</strong> 85,000 руб.</p>
-        </div>
-        
-        <div>
-            <img src="../images/headphones.png" alt="Товар 2" width="200" height="150">
-            <h3>Наушники премиум</h3>
-            <p><strong>Цена:</strong> 12,500 руб.</p>
-        </div>
-        
-        <div>
-            <img src="../images/monitor.png" alt="Товар 3" width="200" height="150">
-            <h3>Монитор игровой</h3>
-            <p><strong>Цена:</strong> 35,000 руб.</p>
-        </div>
-        
-        <div>
-            <img src="../images/smartphone.png" alt="Товар 4" width="200" height="150">
-            <h3>Смартфон флагман</h3>
-            <p><strong>Цена:</strong> 65,000 руб.</p>
-        </div>
-        
-        <div>
-            <img src="../images/deskСhair.png" alt="Товар 5" width="200" height="150">
-            <h3>Офисное кресло</h3>
-            <p><strong>Цена:</strong> 25,000 руб.</p>
-        </div>
-        
-        <div>
-            <img src="../images/lamp.png" alt="Товар 6" width="200" height="150">
-            <h3>Настольная лампа</h3>
-            <p><strong>Цена:</strong> 4,500 руб.</p>
-        </div>
-    </div>
-    <div id="footer">Футер</div>
 </body>
 </html>
