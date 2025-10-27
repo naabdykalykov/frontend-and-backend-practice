@@ -1,0 +1,56 @@
+:root {
+  --color-primary: #667eea;
+  --color-primary-dark: #764ba2;
+  --color-secondary: #f8f9fa;
+  --color-accent: #e74c3c;
+  --color-text-primary: #333;
+  --color-text-secondary: #666;
+  --color-text-inverse: #fff;
+  --color-border: #e9ecef;
+  --color-background: #fff;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  
+  --font-family-primary: 'Inter', sans-serif;
+  --font-size-xs: 0.9rem;
+  --font-size-sm: 1rem;
+  --font-size-base: 1.1rem;
+  --font-size-md: 1.2rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 1.8rem;
+  --font-size-xxl: 2.5rem;
+  
+  --font-weight-normal: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-base: 1.6;
+  --line-height-tight: 1.4;
+  --line-height-loose: 1.8;
+  
+  /* Размеры и отступы */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  --border-radius-sm: 6px;
+  --border-radius-md: 15px;
+  --border-radius-lg: 20px;
+  --border-radius-xl: 25px;
+  
+  --border-width-thin: 2px;
+  --border-width-medium: 4px;
+  
+  --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 15px 40px rgba(0, 0, 0, 0.15);
+  
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  --z-modal: 1000;
+  --z-header: 100;
+}

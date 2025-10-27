@@ -5,96 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Товары - Семестровая работа</title>
     <link rel="stylesheet" href="../style/base.css">
-    <link rel="stylesheet" href="../style/goods.css">
+    <link rel="stylesheet" href="../style/components.css">
 </head>
 <body>
     <div class="page-container">
         <header>
             <nav class="nav">
-                <ul class="nav-list">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                    <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                    <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="goods.html">Товары</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+                <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
+                    <li class="nav__item"><a class="nav__link" href="news.html">Новости</a></li>
+                    <li class="nav__item"><a class="nav__link" href="practices.html">Практики</a></li>
+                    <li class="nav__item"><a class="nav__link nav__link--active" href="goods.html">Товары</a></li>
+                    <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
                 </ul>
             </nav>
         </header>
-        <main class="content">
+        <main class="page__content">
             <header class="page-header">
-                <h1 class="page-title">Каталог товаров</h1>
-                <p class="page-subtitle">Лучшие предложения для вашего комфорта</p>
+                <h1 class="page-header__title">Каталог товаров</h1>
+                <p class="page-header__subtitle">Лучшие предложения для вашего комфорта</p>
             </header>
             
-            <section class="products-grid">
-                <article class="product-card">
-                    <div class="product-image">
+            <section class="products">
+                <article class="product-card product-card--discount">
+                    <div class="product-card__image">
                         <img src="../images/laptop.png" alt="Ноутбук для работы">
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Ноутбук для работы</h3>
-                        <p class="product-price">85,000 руб.</p>
-                        <button class="product-btn">Купить</button>
+                    <div class="product-card__info">
+                        <h3 class="product-card__title">Ноутбук для работы</h3>
+                        <p class="product-card__price">85,000 руб.</p>
+                        <button class="product-card__btn btn btn--primary">Купить</button>
                     </div>
                 </article>
                 
                 <article class="product-card">
-                    <div class="product-image">
+                    <div class="product-card__image">
                         <img src="../images/headphones.png" alt="Наушники премиум">
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Наушники премиум</h3>
-                        <p class="product-price">12,500 руб.</p>
-                        <button class="product-btn">Купить</button>
+                    <div class="product-card__info">
+                        <h3 class="product-card__title">Наушники премиум</h3>
+                        <p class="product-card__price">12,500 руб.</p>
+                        <button class="product-card__btn btn btn--primary">Купить</button>
                     </div>
                 </article>
                 
                 <article class="product-card">
-                    <div class="product-image">
+                    <div class="product-card__image">
                         <img src="../images/monitor.png" alt="Монитор игровой">
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Монитор игровой</h3>
-                        <p class="product-price">35,000 руб.</p>
-                        <button class="product-btn">Купить</button>
+                    <div class="product-card__info">
+                        <h3 class="product-card__title">Монитор игровой</h3>
+                        <p class="product-card__price">35,000 руб.</p>
+                        <button class="product-card__btn btn btn--primary">Купить</button>
                     </div>
                 </article>
                 
-                <article class="product-card">
-                    <div class="product-image">
+                <article class="product-card product-card--discount">
+                    <div class="product-card__image">
                         <img src="../images/smartphone.png" alt="Смартфон флагман">
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Смартфон флагман</h3>
-                        <p class="product-price">65,000 руб.</p>
-                        <button class="product-btn">Купить</button>
+                    <div class="product-card__info">
+                        <h3 class="product-card__title">Смартфон флагман</h3>
+                        <p class="product-card__price">65,000 руб.</p>
+                        <button class="product-card__btn btn btn--primary">Купить</button>
                     </div>
                 </article>
                 
                 <article class="product-card">
-                    <div class="product-image">
+                    <div class="product-card__image">
                         <img src="../images/deskСhair.png" alt="Офисное кресло">
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Офисное кресло</h3>
-                        <p class="product-price">25,000 руб.</p>
-                        <button class="product-btn">Купить</button>
+                    <div class="product-card__info">
+                        <h3 class="product-card__title">Офисное кресло</h3>
+                        <p class="product-card__price">25,000 руб.</p>
+                        <button class="product-card__btn btn btn--primary">Купить</button>
                     </div>
                 </article>
                 
                 <article class="product-card">
-                    <div class="product-image">
+                    <div class="product-card__image">
                         <img src="../images/lamp.png" alt="Настольная лампа">
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Настольная лампа</h3>
-                        <p class="product-price">4,500 руб.</p>
-                        <button class="product-btn">Купить</button>
+                    <div class="product-card__info">
+                        <h3 class="product-card__title">Настольная лампа</h3>
+                        <p class="product-card__price">4,500 руб.</p>
+                        <button class="product-card__btn btn btn--primary">Купить</button>
                     </div>
                 </article>
             </section>
         </main>
-        <footer class="footer">
+        <footer class="page__footer">
             <p>&copy; 2024 Семестровая работа. Все права защищены.</p>
         </footer>
     </div>
