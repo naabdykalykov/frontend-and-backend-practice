@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семестровая работа</title>
+    <link rel="stylesheet" href="style/base.css">
+    <link rel="stylesheet" href="style/components.css">
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link nav__link--active" href="index.html">Главная</a></li>
+                    <li class="nav__item"><a class="nav__link" href="pages/news.html">Новости</a></li>
+                    <li class="nav__item"><a class="nav__link" href="pages/practices.html">Практики</a></li>
+                    <li class="nav__item"><a class="nav__link" href="pages/goods.html">Товары</a></li>
+                    <li class="nav__item"><a class="nav__link" href="pages/contacts.html">Контакты</a></li>
+                    <li class="nav__item">
+                        <button class="theme-switcher" tabindex="0" aria-label="Переключить тему">
+                            <span class="theme-switcher__icon">🌙</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="page__content">
+            <section class="profile">
+                <h1 class="profile__title">Информация об авторе</h1>
+                <img class="profile__photo" src="images/me.png" alt="Фото автора">
+                <h2 class="profile__name">Абдыкалыков Нурсултан Абдыкалыкович</h2>
+                <p class="profile__group">ЭФБО-07-24</p>
+            </section>
+            <section class="about">
+                <p>Обо мне: Я родился в Москве в 70-м на краю города. Глупость рано ударила в голову. В четыре активно ругался. Потом школа, форма, драки, клей. Так я становился сильней. Воровал деньги в раздевалке.</p>
+            </section>
+            <section class="skills">
+                <div class="skills__item">Навык 1</div>
+                <div class="skills__item">Навык 2</div>
+                <div class="skills__item">Навык 3</div>
+                <div class="skills__item">Навык 4</div>
+            </section>
+            <section class="experience">
+                <h2>Мой опыт работы</h2>
+                <article class="experience__item">
+                    <h3 class="experience__title">Опыт 1</h3>
+                    <p class="experience__description">Работал фантазёром. Сочинял и праздновал.</p>
+                </article>
+                <article class="experience__item">
+                    <h3 class="experience__title">Опыт 2</h3>
+                    <p class="experience__description">Работал воровством. Воровал и продавал.</p>
+                </article>
+                <article class="experience__item">
+                    <h3 class="experience__title">Опыт 3</h3>
+                    <p class="experience__description">Работал рэпером. Читал и пел.</p>
+                </article>
+            </section>
+        </main>
+        <footer class="page__footer">
+            <p>&copy; 2024 Семестровая работа. Все права защищены.</p>
+        </footer>
+    </div>
+    <script src="scripts/theme-switcher.js"></script>
+</body>
+</html>

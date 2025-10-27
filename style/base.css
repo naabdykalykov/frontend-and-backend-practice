@@ -45,6 +45,7 @@ body {
 
 [data-theme="dark"] .page__footer {
     background: rgba(0, 0, 0, 0.2);
+    color: white;
 }
 
 .nav {
@@ -117,6 +118,7 @@ body {
 .page-header {
     text-align: center;
     margin-bottom: var(--spacing-xl);
+    background: transparent;
 }
 
 .page-header__title {

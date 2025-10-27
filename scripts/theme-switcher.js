@@ -8,6 +8,24 @@ function toggleTheme() {
     
     if (newTheme === 'dark') {
         html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        if (themeSwitcherIcon) {
+            themeSwitcherIcon.textContent = '☀️';
+        }
+    } else {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        if (themeSwitcherIcon) {
+            themeSwitcherIcon.textContent = '🌙';
+        }
+    }
+}
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'dark') {
+        html.setAttribute('data-theme', 'dark');
         if (themeSwitcherIcon) {
             themeSwitcherIcon.textContent = '☀️';
         }
@@ -16,13 +34,6 @@ function toggleTheme() {
         if (themeSwitcherIcon) {
             themeSwitcherIcon.textContent = '🌙';
         }
-    }
-}
-
-function initTheme() {
-    html.removeAttribute('data-theme');
-    if (themeSwitcherIcon) {
-        themeSwitcherIcon.textContent = '🌙';
     }
 }
 
