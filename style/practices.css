@@ -4,7 +4,7 @@
     gap: 3rem;
 }
 
-.practice-intro {
+article.practice-intro {
     background: #f8f9fa;
     padding: 2rem;
     border-radius: 15px;
@@ -36,7 +36,7 @@
     font-size: 0.9rem;
 }
 
-.planned-sections {
+article.planned-sections {
     background: white;
     padding: 2rem;
     border-radius: 15px;
@@ -57,16 +57,25 @@
     gap: 1.5rem;
 }
 
-.section-card {
+@media (max-width: 600px) {
+    .sections-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+article.section-card {
     background: #f8f9fa;
     padding: 1.5rem;
     border-radius: 15px;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
     border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.section-card:hover {
+article.section-card:hover {
     transform: translateY(-5px);
     border-color: #667eea;
 }

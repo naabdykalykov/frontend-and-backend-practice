@@ -4,21 +4,23 @@
     gap: 2rem;
 }
 
-.news-card {
+article.news-card {
     background: #f8f9fa;
     padding: 2rem;
     border-radius: 15px;
     border-left: 4px solid #667eea;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.news-card:hover {
+article.news-card:hover {
     transform: translateX(10px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
 }
 
 .news-meta {
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
     margin-bottom: 1rem;
     font-size: 0.9rem;
     color: #666;
