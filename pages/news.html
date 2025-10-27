@@ -4,42 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Новости - Семестровая работа</title>
+    <link rel="stylesheet" href="../style/base.css">
+    <link rel="stylesheet" href="../style/news.css">
 </head>
 <body>
-    <div id="header">Хэдер</div>
-    <div id="menu">
-        <ul>
-            <li><a href="../index.html">Главная</a></li>
-            <li><a href="news.html">Новости</a></li>
-            <li><a href="practices.html">Практики</a></li>
-            <li><a href="goods.html">Товары</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-        </ul>
+    <div class="page-container">
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link active" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="page-header">
+                <h1 class="page-title">Новости</h1>
+                <p class="page-subtitle">Актуальные события и обновления</p>
+            </div>
+            
+            <div class="news-container">
+                <article class="news-card">
+                    <div class="news-meta">
+                        <span class="news-date">15 октября 2024</span>
+                        <span class="news-author">Абдыкалыков Нурсултан</span>
+                    </div>
+                    <h2 class="news-title">Запуск нового курса по веб-разработке</h2>
+                    <p class="news-content">Сегодня мы рады объявить о запуске нового курса по современной веб-разработке. Курс включает изучение HTML5, CSS3, JavaScript и популярных фреймворков. Занятия будут проходить в интерактивном формате с практическими заданиями.</p>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-meta">
+                        <span class="news-date">10 октября 2024</span>
+                        <span class="news-author">Преподавательский состав</span>
+                    </div>
+                    <h2 class="news-title">Обновление системы обучения</h2>
+                    <p class="news-content">Мы обновили нашу систему дистанционного обучения. Теперь студенты могут получать доступ к материалам курса 24/7, участвовать в онлайн-дискуссиях и получать обратную связь от преподавателей в режиме реального времени.</p>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-meta">
+                        <span class="news-date">5 октября 2024</span>
+                        <span class="news-author">Академический отдел</span>
+                    </div>
+                    <h2 class="news-title">Результаты семестровых работ</h2>
+                    <p class="news-content">Подведены итоги семестровых работ по направлению "Информационные технологии". Лучшие проекты будут представлены на студенческой конференции в конце месяца. Поздравляем всех участников с успешным завершением работ!</p>
+                </article>
+            </div>
+        </div>
+        <div class="footer">Футер</div>
     </div>
-    <div id="content">
-        <h1>Новости</h1>
-        
-        <div>
-            <h2>Запуск нового курса по веб-разработке</h2>
-            <p><strong>Дата:</strong> 15 октября 2024</p>
-            <p><strong>Автор:</strong> Абдыкалыков Нурсултан</p>
-            <p>Сегодня мы рады объявить о запуске нового курса по современной веб-разработке. Курс включает изучение HTML5, CSS3, JavaScript и популярных фреймворков. Занятия будут проходить в интерактивном формате с практическими заданиями.</p>
-        </div>
-        
-        <div>
-            <h2>Обновление системы обучения</h2>
-            <p><strong>Дата:</strong> 10 октября 2024</p>
-            <p><strong>Автор:</strong> Преподавательский состав</p>
-            <p>Мы обновили нашу систему дистанционного обучения. Теперь студенты могут получать доступ к материалам курса 24/7, участвовать в онлайн-дискуссиях и получать обратную связь от преподавателей в режиме реального времени.</p>
-        </div>
-        
-        <div>
-            <h2>Результаты семестровых работ</h2>
-            <p><strong>Дата:</strong> 5 октября 2024</p>
-            <p><strong>Автор:</strong> Академический отдел</p>
-            <p>Подведены итоги семестровых работ по направлению "Информационные технологии". Лучшие проекты будут представлены на студенческой конференции в конце месяца. Поздравляем всех участников с успешным завершением работ!</p>
-        </div>
-    </div>
-    <div id="footer">Футер</div>
 </body>
 </html>

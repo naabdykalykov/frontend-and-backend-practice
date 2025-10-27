@@ -4,37 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты - Семестровая работа</title>
+    <link rel="stylesheet" href="../style/base.css">
+    <link rel="stylesheet" href="../style/contacts.css">
 </head>
 <body>
-    <div id="header">Хэдер</div>
-    <div id="menu">
-        <ul>
-            <li><a href="../index.html">Главная</a></li>
-            <li><a href="news.html">Новости</a></li>
-            <li><a href="practices.html">Практики</a></li>
-            <li><a href="goods.html">Товары</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-        </ul>
-    </div>
-    <div id="content">
-        <h1>Контакты</h1>
-        
-        <div>
-            <h2>Свяжитесь со мной</h2>
-            <p><strong>Электронная почта:</strong> webmaster@example.org</p>
-            <p><strong>Адрес:</strong> г. Москва, ул. Студенческая, д. 15, кв. 42</p>
-            <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
+    <div class="page-container">
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link active" href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="page-header">
+                <h1 class="page-title">Контакты</h1>
+                <p class="page-subtitle">Свяжитесь со мной любым удобным способом</p>
+            </div>
             
-            <button>Позвоните мне</button>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2 class="contact-section-title">Контактная информация</h2>
+                    <div class="contact-item">
+                        <span class="contact-label">Электронная почта:</span>
+                        <span class="contact-value">webmaster@example.org</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Адрес:</span>
+                        <span class="contact-value">г. Москва, ул. Студенческая, д. 15, кв. 42</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Телефон:</span>
+                        <span class="contact-value">+7 (999) 123-45-67</span>
+                    </div>
+                    <button class="contact-btn">Позвоните мне</button>
+                </div>
+                
+                <div class="additional-info">
+                    <h3 class="info-title">Дополнительная информация</h3>
+                    <p class="info-text">Я всегда открыт для новых проектов и сотрудничества. Если у вас есть вопросы или предложения, не стесняйтесь связаться со мной любым удобным способом.</p>
+                    <div class="schedule-info">
+                        <div class="schedule-item">
+                            <span class="schedule-label">Время работы:</span>
+                            <span class="schedule-value">Пн-Пт с 9:00 до 18:00</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-label">Ответ на письма:</span>
+                            <span class="schedule-value">В течение 24 часов</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div>
-            <h3>Дополнительная информация</h3>
-            <p>Я всегда открыт для новых проектов и сотрудничества. Если у вас есть вопросы или предложения, не стесняйтесь связаться со мной любым удобным способом.</p>
-            <p><strong>Время работы:</strong> Пн-Пт с 9:00 до 18:00</p>
-            <p><strong>Ответ на письма:</strong> В течение 24 часов</p>
-        </div>
+        <div class="footer">Футер</div>
     </div>
-    <div id="footer">Футер</div>
 </body>
 </html>
