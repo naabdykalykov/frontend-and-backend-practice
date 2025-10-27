@@ -65,6 +65,15 @@
     transform: scale(1.05);
 }
 
+.contact-btn:active {
+    transform: scale(0.98);
+}
+
+.contact-btn:focus-visible {
+    outline: var(--border-width-thin) solid var(--color-primary);
+    outline-offset: var(--spacing-xs);
+}
+
 .additional-info {
     background: var(--color-secondary);
     padding: var(--spacing-lg);

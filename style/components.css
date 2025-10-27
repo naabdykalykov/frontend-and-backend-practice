@@ -99,9 +99,9 @@
     transform: scale(0.98);
 }
 
-.product-card__btn:focus {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
+.product-card__btn:focus-visible {
+    outline: var(--border-width-thin) solid var(--color-primary);
+    outline-offset: var(--spacing-xs);
 }
 
 .btn {
@@ -123,9 +123,9 @@
     transform: translateY(0);
 }
 
-.btn:focus {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
+.btn:focus-visible {
+    outline: var(--border-width-thin) solid var(--color-primary);
+    outline-offset: var(--spacing-xs);
 }
 
 .btn--primary {
@@ -198,6 +198,11 @@
 
 .skills__item:active {
     transform: translateY(-2px);
+}
+
+.skills__item:focus-visible {
+    outline: var(--border-width-thin) solid var(--color-text-inverse);
+    outline-offset: var(--spacing-xs);
 }
 
 .experience {
