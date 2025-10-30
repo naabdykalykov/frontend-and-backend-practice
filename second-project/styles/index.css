@@ -1,0 +1,246 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4em 0 3em 0;
+    text-align: center;
+}
+
+.hero-avatar {
+    width: 150px;
+    height: 150px;
+    background: #161616;
+    border: 2px solid #ededed;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.7rem;
+    font-weight: 800;
+    color: #ededed;
+    margin-bottom: 1.4em;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+}
+
+.hero-avatar .avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.hero-main {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0 0 2em 0;
+    letter-spacing: 1px;
+    color: #ededed;
+}
+
+.skills-section {
+    background: rgba(34,34,34,0.95);
+    padding: 3rem;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    box-shadow: 0 2px 10px rgba(15,15,15,0.06);
+}
+
+.skills-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill-item { margin-bottom: 1.5rem; }
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #ededed;
+}
+
+.skill-bar {
+    height: 10px;
+    background: #232323;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #292929;
+}
+
+.skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ededed 0%, #a0a0a0 100%);
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+}
+
+.projects-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.3rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.project-card-min {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-width: 265px;
+    max-width: 320px;
+    background: #181818;
+    border: 1.2px solid #383838;
+    border-radius: 1.3em;
+    padding: 1.6em 1.6em 1.15em 1.2em;
+    box-shadow: 0 6px 32px #0002, 0 1.5px 4px #19192218;
+    position: relative;
+    transition: box-shadow .19s, border .21s;
+    margin-bottom: 1.3em;
+}
+
+.project-card-min:hover {
+    box-shadow: 0 10px 42px #07122033,0 2px 14px #9992;
+    border: 1.2px solid #ededed;
+}
+
+.project-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: #ededed;
+    color: #161616;
+    font-weight: 900;
+    font-size: 1.33em;
+    border-radius: 50%;
+    margin-right: 1em;
+    box-shadow: 0 2px 6px #fff2;
+    margin-bottom: 0.8em;
+}
+
+.project-title {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.21em;
+    font-weight: 600;
+    color: #ededed;
+    padding: 0.19em 0 0.5em 0;
+    margin-bottom: .45em;
+    margin-right: 0.5em;
+}
+
+.project-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: .39em 0;
+    background: transparent;
+    color: #ededed;
+    border: 1.1px solid #ededed;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 500;
+    margin-top: auto;
+    text-decoration: none;
+    transition: all .16s;
+}
+
+.project-btn:hover {
+    background: #ededed;
+    color: #161616;
+}
+
+.skills-flex-badge {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.13em 1.33em;
+    justify-content: center;
+    margin: 2em 0 1em 0;
+}
+
+.skill-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    background: #23242c;
+    color: #ededed;
+    padding: 0.6em 1.5em 0.6em 1.05em;
+    border-radius: 22px;
+    letter-spacing: 0.2px;
+    margin-bottom: 0.2em;
+    box-shadow: 0 2px 12px #19192211;
+    border: 1.1px solid #333;
+    transition: background .19s, color .19s, border .21s, box-shadow .14s, transform .13s;
+}
+
+.skill-badge .icon {
+    width: 1.45em;
+    height: auto;
+    display: inline-block;
+    margin-right: 0.65em;
+}
+
+.skill-badge.html {
+    background: linear-gradient(45deg,#fa4f22 80%,#ef7b2d 100%);
+    color: #fff;
+    border-color: #fa4f22cc;
+    box-shadow: 0 2px 12px #fa4f2240;
+    position: relative;
+}
+
+.skill-badge.html .icon {
+    background: #fff;
+    border-radius: 50%;
+    padding: 0.16em;
+    box-shadow: 0 0 0 2px #ef752dcc, 0 1.5px 6px #fff6;
+}
+
+.skill-badge.css { background: linear-gradient(45deg,#396cd8 75%,#1baeff 100%); color: #fff; border-color: #396cd8cc; }
+.skill-badge.js { background: linear-gradient(45deg,#e2b133 72%,#ffe854 100%); color: #111; border-color: #e2b133cc; }
+.skill-badge.ts { background: linear-gradient(45deg,#146ad4 72%,#45aefd 100%); color: #fff; border-color: #146ad4cc; }
+.skill-badge.react { background: linear-gradient(60deg,#30a9c7 74%,#61dafb 100%); color: #fff; border-color: #30a9c7cc; }
+.skill-badge.node { background: linear-gradient(60deg,#37c667 70%,#8cef57 100%); color: #191; border-color: #37c667cc; }
+.skill-badge.git { background: linear-gradient(35deg,#845531 80%,#e17425 100%); color: #fff; border-color: #845531cc; }
+.skill-badge.figma { background: linear-gradient(60deg,#a145e6 74%,#fd5fd4 100%); color: #fff; border-color: #a145e6cc; }
+.skill-badge.ant { background: linear-gradient(45deg,#1677ff 75%,#69b1ff 100%); color: #fff; border-color: #1677ffcc; }
+.skill-badge.redux { background: linear-gradient(45deg,#764abc 75%,#9b6bd6 100%); color: #fff; border-color: #764abccc; }
+.skill-badge.zustand { background: linear-gradient(45deg,#3b3b3b 70%,#6a6a6a 100%); color: #fff; border-color: #4a4a4acc; }
+
+.skill-badge:hover {
+    filter: brightness(1.15);
+    box-shadow: 0 6px 28px #fff3,0 2px 14px #0002;
+    border-color: #edededcc;
+    z-index: 1;
+    transform: scale(1.07);
+}
+
+@media (max-width: 900px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    .photo-placeholder {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .skills-section { padding: 1.2rem; }
+    .hero { padding: 1.2rem; }
+}
+
+@media (max-width: 740px) {
+    .project-card-min { min-width: 175px; padding: 1em 0.7em 1em 0.8em; }
+    .project-icon { width: 35px; height: 35px; font-size: 1em; margin-bottom: 0.55em; }
+    .project-title { font-size: .99em; }
+}
+
+
