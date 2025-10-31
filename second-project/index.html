@@ -2,12 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Портфолио студента</title>
     <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    <div class="page">
     <header class="header">
         <div class="container">
             <nav class="nav">
@@ -19,11 +21,19 @@
         </div>
     </header>
 
-    <main class="main">
+    <main id="main" class="main">
         <div class="container">
             <section class="hero">
               <div class="hero-avatar">
-                <img src="images/me.png" alt="Абдыкалыков Нурсултан Абдыкалыкович" class="avatar-img" /> 
+                <img 
+                  src="images/me.png"
+                  srcset="images/me.png 200w"
+                  sizes="200px"
+                  width="200" height="200"
+                  alt="Абдыкалыков Нурсултан Абдыкалыкович"
+                  class="avatar-img"
+                  fetchpriority="high"
+                /> 
               </div>
               <h1 class="hero-main">Абдыкалыков Нурсултан</h1>
               <a href="assets/resume.pdf" class="btn-outline" download>Резюме</a>
@@ -64,6 +74,7 @@
             <p>© 2025 Контакты</p>
         </div>
     </footer>
+</div>
 </body>
 </html>
 

@@ -1,12 +1,23 @@
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 280px);
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     gap: 2rem;
 }
 
+@supports (container-type: inline-size){
+  .projects-area{
+    container-type: inline-size;
+    container-name: projects;
+  }
+  @container projects (min-width: 640px){
+    .projects-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @container projects (min-width: 960px){
+    .projects-grid{ grid-template-columns: repeat(3, 1fr); }
+  }
+}
+
 .project-card {
-    width: 280px;
     height: 360px;
     background: rgba(28,28,28,0.88);
     border-radius: 10px;

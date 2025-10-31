@@ -4,12 +4,23 @@
     box-sizing: border-box;
 }
 
+:root { color-scheme: light dark; }
+
+html, body { height: 100%; }
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #ededed;
     background: #151515;
     line-height: 1.6;
+}
+
+.page {
     min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -25,6 +36,10 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    padding-block-start: calc(1rem + env(safe-area-inset-top));
+    padding-inline-start: calc(0px + env(safe-area-inset-left));
+    padding-inline-end:   calc(0px + env(safe-area-inset-right));
+    isolation: isolate;
 }
 
 .header .container {
@@ -68,9 +83,11 @@ body {
     border-bottom: 1.5px solid #efefef;
 }
 
+main { flex: 1; }
+
 .main {
     padding: 3rem 0;
-    min-height: calc(100vh - 120px);
+    padding-inline: clamp(.75rem, .5rem + 1vw, 2rem);
 }
 
 .btn-outline {
@@ -93,7 +110,7 @@ body {
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 1.1rem + 2vw, 2rem);
     margin-bottom: 2rem;
     color: #ededed;
     text-align: center;
@@ -114,11 +131,47 @@ body {
     color: #ededed;
 }
 
+.skip-link{
+    position: absolute;
+    inset-inline-start: 1rem;
+    inset-block-start: -100%;
+    z-index: 10000;
+    padding: .5rem .75rem;
+    background: #111;
+    color: #fff;
+    border-radius: .5rem;
+    text-decoration: none;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible { inset-block-start: 1rem; }
+
+:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+a, button, input, textarea { outline-offset: 2px; }
+
+@media (pointer: coarse){
+    a, button, .nav a { min-height: 44px; padding: .75rem 1rem; }
+}
+
+.visually-hidden{
+    position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+@media (prefers-contrast: more){
+  .button, .filter{ box-shadow: inset 0 0 0 2px #fff; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
+
 .footer {
     background: #232323;
     color: #ededed;
     text-align: center;
     padding: 2rem 0;
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom));
     font-size: 1.04rem;
     letter-spacing: 0.2px;
     border-top: 1.5px solid #333;
