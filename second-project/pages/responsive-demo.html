@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Адаптивные изображения — Демонстрация</title>
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/responsive-demo.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    <div class="page">
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html">Главная</a>
+                <a href="projects.html">Проекты</a>
+                <a href="diary.html">Дневник</a>
+                <a href="contacts.html">Контакты</a>
+                <a href="responsive-demo.html" class="active">Адаптивные изображения</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="container">
+            <header class="demo-header">
+                <h1 class="section-title">Демонстрация адаптивных изображений</h1>
+                <p class="demo-subtitle">Современные техники: базовая адаптивность, picture/WebP, медиазапросы, Retina, object-fit, адаптивная галерея</p>
+            </header>
+            
+            <section class="section">
+                <h2 class="section-heading">1. Базовое адаптивное изображение</h2>
+                <div class="image-container">
+                    <img
+                        src="../images/outdoor.png"
+                        alt="Изображение на тему outdoor"
+                        class="responsive-image"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="explanation">
+                    <h3>Что происходит:</h3>
+                    <ul>
+                        <li>Изображение занимает 100% ширины контейнера</li>
+                        <li>Высота автоматически сохраняет пропорции</li>
+                        <li>Кросс-браузерно без доп. разметки</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-heading">2. Picture element с форматами</h2>
+                <div class="image-container">
+                    <picture>
+                        <source srcset="../images/bookshelf.webp" type="image/webp">
+                        <img
+                            src="../images/bookshelf.png"
+                            alt="Книжная тематика"
+                            class="responsive-image"
+                            loading="lazy"
+                        >
+                    </picture>
+                </div>
+                <div class="explanation">
+                    <h3>Что происходит:</h3>
+                    <ul>
+                        <li>Если есть WebP (bookshelf.webp) — браузер загрузит его</li>
+                        <li>Если WebP нет — загрузится PNG (bookshelf.png)</li>
+                        <li>Можно заменить/добавить JPEG при необходимости</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-heading">3. Разные изображения для разных экранов</h2>
+                <div class="image-container">
+                    <picture>
+                        <source media="(min-width: 1200px)" srcset="../images/monitor.webp" type="image/webp">
+                        <source media="(min-width: 1200px)" srcset="../images/monitor.png" type="image/png">
+                        <source media="(min-width: 768px)" srcset="../images/laptop.webp" type="image/webp">
+                        <source media="(min-width: 768px)" srcset="../images/laptop.png" type="image/png">
+                        <img
+                            src="../images/smartphone.png"
+                            alt="Версии изображения под разные устройства"
+                            class="responsive-image"
+                            loading="lazy"
+                        >
+                    </picture>
+                </div>
+                <div class="explanation">
+                    <h3>Что происходит:</h3>
+                    <ul>
+                        <li>Десктоп: monitor.png (1200px+)</li>
+                        <li>Планшет: laptop.png (768–1199px)</li>
+                        <li>Мобильный: smartphone.png (до 767px)</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-heading">4. Поддержка Retina дисплеев</h2>
+                <div class="image-container center">
+                    <img
+                        src="../images/headphones.png"
+                        srcset="../images/headphones.png 1x, ../images/headphones@2x.png 2x"
+                        alt="Иконка на тему аудио"
+                        width="100" height="100"
+                    >
+                </div>
+                <div class="explanation">
+                    <h3>Что происходит:</h3>
+                    <ul>
+                        <li>Обычные экраны: загружается 1x</li>
+                        <li>Retina: при наличии файла <code>headphones@2x.png</code> загрузится более чёткая версия</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-heading">5. Object-fit</h2>
+                <div class="objectfit-grid">
+                    <figure>
+                        <img src="../images/lamp.png" class="object-fit-cover" alt="cover" loading="lazy">
+                        <figcaption>object-fit: cover</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../images/lamp.png" class="object-fit-contain" alt="contain" loading="lazy">
+                        <figcaption>object-fit: contain</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../images/lamp.png" class="object-fit-fill" alt="fill" loading="lazy">
+                        <figcaption>object-fit: fill</figcaption>
+                    </figure>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-heading">6. Адаптивная галерея</h2>
+                <div class="gallery">
+                    <img src="../images/laptop.png" alt="Галерея — ноутбук" loading="lazy">
+                    <img src="../images/monitor.png" alt="Галерея — монитор" loading="lazy">
+                    <img src="../images/smartphone.png" alt="Галерея — смартфон" loading="lazy">
+                    <img src="../images/headphones.png" alt="Галерея — наушники" loading="lazy">
+                </div>
+                <div class="explanation">
+                    <h3>Что происходит:</h3>
+                    <ul>
+                        <li>Сетка перестраивается под ширину экрана</li>
+                        <li>Изображения сохраняют пропорции</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Контакты</p>
+        </div>
+    </footer>
+    </div>
+</body>
+</html>
+
+
