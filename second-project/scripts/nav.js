@@ -24,12 +24,10 @@
 
   toggle.addEventListener('click', toggleMenu);
 
-  // Закрытие по ESC
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') close();
   });
 
-  // Закрытие по клику вне панели на мобильных
   nav.addEventListener('click', (e) => {
     if (e.target.tagName === 'A') close();
   });

@@ -243,7 +243,6 @@
     .project-title { font-size: .99em; }
 }
 
-/* Дополнительная адаптация под план 1024/768/480 */
 @media (max-width: 1024px){
   .hero-avatar { width: 180px; height: 180px; }
 }
