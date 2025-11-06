@@ -254,7 +254,7 @@
 
 @media (max-width: 480px){
   .hero-avatar { width: 150px; height: 150px; }
-  .btn-outline { display: block; width: 100%; }
+  .btn-outline { display: inline-block; width: auto; }
   .projects-flex { gap: 1rem; }
 }
 
