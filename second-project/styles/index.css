@@ -79,10 +79,10 @@
 }
 
 .projects-flex {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2.3rem;
-    justify-content: center;
+    justify-items: center;
     margin-top: 2rem;
 }
 
@@ -241,6 +241,22 @@
     .project-card-min { min-width: 175px; padding: 1em 0.7em 1em 0.8em; }
     .project-icon { width: 35px; height: 35px; font-size: 1em; margin-bottom: 0.55em; }
     .project-title { font-size: .99em; }
+}
+
+/* Дополнительная адаптация под план 1024/768/480 */
+@media (max-width: 1024px){
+  .hero-avatar { width: 180px; height: 180px; }
+}
+
+@media (max-width: 768px){
+  .projects-flex { gap: 1.25rem; }
+  .hero-main { font-size: 1.9rem; margin-bottom: 1.5em; }
+}
+
+@media (max-width: 480px){
+  .hero-avatar { width: 150px; height: 150px; }
+  .btn-outline { display: block; width: 100%; }
+  .projects-flex { gap: 1rem; }
 }
 
 
