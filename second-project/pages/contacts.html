@@ -20,7 +20,7 @@
                     <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </button>
-            <nav class="nav" id="primary-nav" role="navigation">
+            <nav class="nav" id="primary-nav">
                 <a href="../index.html">Главная</a>
                 <a href="projects.html">Проекты</a>
                 <a href="diary.html">Дневник</a>
@@ -37,47 +37,57 @@
 
                 <div class="contacts-grid">
                     <div class="contact-card">
-                        <form class="contact-form" id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Имя</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
+                        <form class="contact-form" id="contactForm" novalidate aria-describedby="form-status">
+                            <fieldset class="contact-fieldset">
+                                <legend class="fieldset-title">Отправить сообщение</legend>
 
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" aria-describedby="email-hint email-error" required>
-                                <small id="email-hint" class="visually-hidden">Мы пришлём ответ на этот адрес</small>
-                                <span id="email-error" class="visually-hidden" role="alert"></span>
-                            </div>
+                                <div class="form-group">
+                                    <label for="name">Имя <span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-hint name-error">
+                                    <small id="name-hint" class="form-hint">Как к вам обращаться</small>
+                                    <p id="name-error" class="form-error" aria-live="polite" hidden></p>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="message">Сообщение</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
+                                <div class="form-group">
+                                    <label for="email">Email <span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-hint email-error">
+                                    <small id="email-hint" class="form-hint">Мы пришлём ответ на этот адрес</small>
+                                    <p id="email-error" class="form-error" aria-live="polite" hidden></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message">Сообщение <span class="required-mark" aria-hidden="true">*</span></label>
+                                    <textarea id="message" name="message" rows="5" required aria-required="true" aria-describedby="message-error"></textarea>
+                                    <p id="message-error" class="form-error" aria-live="polite" hidden></p>
+                                </div>
+                            </fieldset>
+
+                            <div id="form-status" class="form-status" role="status" aria-live="polite" hidden></div>
 
                             <button type="submit" class="btn-submit">Отправить сообщение</button>
                         </form>
                     </div>
 
-                    <div class="contact-card">
-                        <div class="contact-list">
-                            <div class="contact-item">
-                                <span class="icon">📧</span>
+                    <div class="contact-card" aria-labelledby="contact-details-title">
+                        <h2 id="contact-details-title" class="contact-details-title">Дополнительные способы связи</h2>
+                        <ul class="contact-list">
+                            <li class="contact-item">
+                                <span class="icon" aria-hidden="true">📧</span>
                                 <div class="contact-text"><a href="mailto:student@edu.ru">student@edu.ru</a></div>
-                            </div>
-                            <div class="contact-item">
-                                <span class="icon">☎</span>
+                            </li>
+                            <li class="contact-item">
+                                <span class="icon" aria-hidden="true">☎</span>
                                 <div class="contact-text"><a href="tel:+79991234567">+7 (999) 123-45-67</a></div>
-                            </div>
-                            <div class="contact-item">
-                                <span class="icon">💼</span>
-                                <div class="contact-text"><a href="https://github.com/naabdykalykov" target="_blank" rel="noopener noreferrer">github</a></div>
-                            </div>
-                            <div class="contact-item">
-                                <span class="icon">📍</span>
+                            </li>
+                            <li class="contact-item">
+                                <span class="icon" aria-hidden="true">💼</span>
+                                <div class="contact-text"><a href="https://github.com/naabdykalykov" target="_blank" rel="noopener noreferrer">Профиль на GitHub</a></div>
+                            </li>
+                            <li class="contact-item">
+                                <span class="icon" aria-hidden="true">📍</span>
                                 <div class="contact-text">Россия, Москва</div>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
