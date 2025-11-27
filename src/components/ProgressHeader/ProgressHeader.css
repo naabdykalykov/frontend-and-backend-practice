@@ -47,3 +47,27 @@
   transition: width 200ms ease;
 }
 
+.progress-header__breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.progress-header__breakdown div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.progress-header__breakdown dt {
+  margin: 0;
+  color: #6b7280;
+}
+
+.progress-header__breakdown dd {
+  margin: 0;
+  font-weight: 600;
+}
+

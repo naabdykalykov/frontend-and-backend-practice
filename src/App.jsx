@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import TechnologyCard from './components/TechnologyCard/TechnologyCard'
 import ProgressHeader from './components/ProgressHeader/ProgressHeader'
+import QuickActions from './components/QuickActions/QuickActions'
+import FilterTabs from './components/FilterTabs/FilterTabs'
 import './App.css'
 
 const initialTechnologies = [
@@ -50,15 +52,44 @@ const initialTechnologies = [
 
 function App() {
   const [technologies, setTechnologies] = useState(initialTechnologies)
+  const [filter, setFilter] = useState('all')
+
   const total = technologies.length
   const completed = technologies.filter((tech) => tech.status === 'completed').length
   const completion = total === 0 ? 0 : Math.round((completed / total) * 100)
+  const statusCounts = {
+    'not-started': technologies.filter((tech) => tech.status === 'not-started').length,
+    'in-progress': technologies.filter((tech) => tech.status === 'in-progress').length,
+    completed,
+  }
 
   const handleStatusChange = (id, nextStatus) => {
     setTechnologies((prev) =>
       prev.map((tech) => (tech.id === id ? { ...tech, status: nextStatus } : tech)),
     )
   }
+
+  const handleCompleteAll = () => {
+    setTechnologies((prev) => prev.map((tech) => ({ ...tech, status: 'completed' })))
+  }
+
+  const handleResetAll = () => {
+    setTechnologies(initialTechnologies.map((tech) => ({ ...tech })))
+  }
+
+  const handlePickRandom = () => {
+    const pool = technologies.filter((tech) => tech.status !== 'completed')
+    if (pool.length === 0) {
+      return
+    }
+    const target = pool[Math.floor(Math.random() * pool.length)]
+    handleStatusChange(target.id, 'in-progress')
+  }
+
+  const filteredTechnologies = technologies.filter((tech) => {
+    if (filter === 'all') return true
+    return tech.status === filter
+  })
 
   return (
     <main className="app">
@@ -67,10 +98,23 @@ function App() {
         <p>Быстрый обзор стека, который мы используем.</p>
       </header>
 
-      <ProgressHeader total={total} completed={completed} completion={completion} />
+      <QuickActions
+        onCompleteAll={handleCompleteAll}
+        onResetAll={handleResetAll}
+        onPickRandom={handlePickRandom}
+      />
+
+      <ProgressHeader
+        total={total}
+        completed={completed}
+        completion={completion}
+        statusCounts={statusCounts}
+      />
+
+      <FilterTabs value={filter} onChange={setFilter} />
 
       <section className="app__grid">
-        {technologies.map((tech) => (
+        {filteredTechnologies.map((tech) => (
           <TechnologyCard
             key={tech.id}
             id={tech.id}

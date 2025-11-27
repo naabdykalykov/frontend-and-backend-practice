@@ -1,0 +1,24 @@
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-tabs button {
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 8px 18px;
+  background: #fff;
+  color: #0f172a;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.filter-tabs button.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
