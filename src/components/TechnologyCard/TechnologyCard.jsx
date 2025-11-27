@@ -1,3 +1,4 @@
+import TechnologyNotes from '../TechnologyNotes/TechnologyNotes'
 import './TechnologyCard.css'
 
 const STATUS_PRESETS = {
@@ -17,7 +18,15 @@ const STATUS_PRESETS = {
 
 const STATUS_ORDER = ['not-started', 'in-progress', 'completed']
 
-function TechnologyCard({ id, title, description, status = 'not-started', onStatusChange }) {
+function TechnologyCard({
+  id,
+  title,
+  description,
+  status = 'not-started',
+  notes = '',
+  onStatusChange,
+  onNotesChange,
+}) {
   const config = STATUS_PRESETS[status] ?? STATUS_PRESETS['not-started']
 
   const handleClick = () => {
@@ -36,6 +45,7 @@ function TechnologyCard({ id, title, description, status = 'not-started', onStat
         <span className="technology-card__status">{config.label}</span>
       </header>
       {description && <p className="technology-card__description">{description}</p>}
+      <TechnologyNotes notes={notes} techId={id} onNotesChange={onNotesChange} />
     </article>
   )
 }

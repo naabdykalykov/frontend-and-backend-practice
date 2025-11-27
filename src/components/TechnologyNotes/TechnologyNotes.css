@@ -1,0 +1,48 @@
+.technology-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.technology-notes__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #0f172a;
+}
+
+.technology-notes__input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.technology-notes__input-wrapper input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 10px 40px 10px 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.technology-notes__input-wrapper input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.technology-notes__length {
+  position: absolute;
+  right: 12px;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.technology-notes__hint {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
