@@ -25,16 +25,11 @@
 .technology-card__status {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
   padding: 4px 12px;
   border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 500;
   border: 1px solid currentColor;
-}
-
-.technology-card__status-icon {
-  font-size: 0.95rem;
 }
 
 .technology-card__description {
