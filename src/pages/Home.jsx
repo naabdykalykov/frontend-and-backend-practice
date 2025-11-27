@@ -7,7 +7,6 @@ function Home({ total, completed, completion, statusCounts }) {
       <section className="page-home__hero">
         <p>Личный центр управления обучением</p>
         <h1>Следите за прогрессом изучения технологий</h1>
-        <p>Добавляйте технологии, фиксируйте заметки и отмечайте прогресс в реальном времени.</p>
         <div className="page-home__cta">
           <Link to="/technologies" className="btn btn-primary">
             Перейти к списку

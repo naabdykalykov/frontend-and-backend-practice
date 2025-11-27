@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import './Navigation.css'
 
-function Navigation() {
+function Navigation({ isLoggedIn, onLogout }) {
   const location = useLocation()
 
   return (
@@ -28,26 +28,52 @@ function Navigation() {
         </li>
         <li>
           <Link
-            to="/add-technology"
-            className={location.pathname === '/add-technology' ? 'active' : ''}
-          >
-            Добавить технологию
-          </Link>
-        </li>
-        <li>
-          <Link
             to="/statistics"
             className={location.pathname === '/statistics' ? 'active' : ''}
           >
             Статистика
           </Link>
         </li>
-        <li>
-          <Link to="/settings" className={location.pathname === '/settings' ? 'active' : ''}>
-            Настройки
-          </Link>
-        </li>
+        {isLoggedIn && (
+          <>
+            <li>
+              <Link
+                to="/add-technology"
+                className={location.pathname === '/add-technology' ? 'active' : ''}
+              >
+                Добавить технологию
+              </Link>
+            </li>
+            <li>
+              <Link to="/settings" className={location.pathname === '/settings' ? 'active' : ''}>
+                Настройки
+              </Link>
+            </li>
+          <li>
+            <Link to="/dashboard" className={location.pathname === '/dashboard' ? 'active' : ''}>
+              Панель
+            </Link>
+          </li>
+          </>
+        )}
       </ul>
+
+      <div className="nav-user">
+        {isLoggedIn ? (
+          <>
+            <button type="button" onClick={onLogout}>
+              Выйти
+            </button>
+          </>
+        ) : (
+          <Link
+            to="/login"
+            className={`btn btn-secondary ${location.pathname === '/login' ? 'active' : ''}`}
+          >
+            Войти
+          </Link>
+        )}
+      </div>
     </nav>
   )
 }

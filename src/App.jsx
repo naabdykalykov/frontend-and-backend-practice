@@ -1,16 +1,28 @@
+import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation/Navigation'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute.jsx'
 import Home from './pages/Home.jsx'
 import TechnologyList from './pages/TechnologyList.jsx'
 import TechnologyDetail from './pages/TechnologyDetail.jsx'
 import AddTechnology from './pages/AddTechnology.jsx'
 import Statistics from './pages/Statistics.jsx'
 import Settings from './pages/Settings.jsx'
+import Login from './pages/Login.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 import useTechnologies, { initialTechnologies } from './hooks/useTechnologies'
 import './App.css'
 
 function App() {
   const { technologies, setTechnologies, updateStatus, updateNotes, progress } = useTechnologies()
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return window.localStorage.getItem('isLoggedIn') === 'true'
+  })
+  const [username, setUsername] = useState(() => {
+    if (typeof window === 'undefined') return ''
+    return window.localStorage.getItem('username') || ''
+  })
 
   const total = technologies.length
   const completed = technologies.filter((tech) => tech.status === 'completed').length
@@ -68,9 +80,27 @@ function App() {
     setTechnologies(initialTechnologies.map((tech) => ({ ...tech })))
   }
 
+  const handleLogin = (user) => {
+    setIsLoggedIn(true)
+    setUsername(user)
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('isLoggedIn', 'true')
+      window.localStorage.setItem('username', user)
+    }
+  }
+
+  const handleLogout = () => {
+    setIsLoggedIn(false)
+    setUsername('')
+    if (typeof window !== 'undefined') {
+      window.localStorage.removeItem('isLoggedIn')
+      window.localStorage.removeItem('username')
+    }
+  }
+
   return (
     <div className="app-layout">
-      <Navigation />
+      <Navigation isLoggedIn={isLoggedIn} username={username} onLogout={handleLogout} />
       <div className="app">
         <Routes>
         <Route
@@ -110,7 +140,20 @@ function App() {
         />
         <Route
           path="/add-technology"
-          element={<AddTechnology onAddTechnology={handleAddTechnology} />}
+          element={
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <AddTechnology onAddTechnology={handleAddTechnology} />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <Dashboard username={username} />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/statistics"
@@ -119,7 +162,13 @@ function App() {
         <Route
           path="/settings"
           element={
-            <Settings onReset={handleResetAll} onClearStorage={handleClearStorage} total={total} />
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <Settings
+                onReset={handleResetAll}
+                onClearStorage={handleClearStorage}
+                total={total}
+              />
+            </ProtectedRoute>
           }
         />
         </Routes>
