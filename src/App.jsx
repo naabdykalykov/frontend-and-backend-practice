@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import TechnologyCard from './components/TechnologyCard/TechnologyCard'
 import ProgressHeader from './components/ProgressHeader/ProgressHeader'
 import './App.css'
 
-const technologies = [
+const initialTechnologies = [
   {
     id: 1,
     title: 'React Components',
@@ -21,9 +22,34 @@ const technologies = [
     description: 'Работа с состоянием компонентов и хуками.',
     status: 'not-started',
   },
+  {
+    id: 4,
+    title: 'React Router',
+    description: 'Настройка клиентского роутинга и защищённых маршрутов.',
+    status: 'not-started',
+  },
+  {
+    id: 5,
+    title: 'Form Handling',
+    description: 'Работа с управляемыми формами и валидацией.',
+    status: 'in-progress',
+  },
+  {
+    id: 6,
+    title: 'Testing Library',
+    description: 'Написание модульных тестов для компонентов.',
+    status: 'not-started',
+  },
+  {
+    id: 7,
+    title: 'Performance Optimization',
+    description: 'Мемоизация, code-splitting и оптимизация рендеров.',
+    status: 'not-started',
+  },
 ]
 
 function App() {
+  const [technologies, setTechnologies] = useState(initialTechnologies)
   const total = technologies.length
   const completed = technologies.filter((tech) => tech.status === 'completed').length
   const completion = total === 0 ? 0 : Math.round((completed / total) * 100)
