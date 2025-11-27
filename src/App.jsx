@@ -1,15 +1,16 @@
-import { useState } from 'react'
-import TechnologyCard from './components/TechnologyCard/TechnologyCard'
-import ProgressHeader from './components/ProgressHeader/ProgressHeader'
-import QuickActions from './components/QuickActions/QuickActions'
-import FilterTabs from './components/FilterTabs/FilterTabs'
+import { Routes, Route } from 'react-router-dom'
+import Navigation from './components/Navigation/Navigation'
+import Home from './pages/Home.jsx'
+import TechnologyList from './pages/TechnologyList.jsx'
+import TechnologyDetail from './pages/TechnologyDetail.jsx'
+import AddTechnology from './pages/AddTechnology.jsx'
+import Statistics from './pages/Statistics.jsx'
+import Settings from './pages/Settings.jsx'
 import useTechnologies, { initialTechnologies } from './hooks/useTechnologies'
 import './App.css'
 
 function App() {
   const { technologies, setTechnologies, updateStatus, updateNotes, progress } = useTechnologies()
-  const [filter, setFilter] = useState('all')
-  const [search, setSearch] = useState('')
 
   const total = technologies.length
   const completed = technologies.filter((tech) => tech.status === 'completed').length
@@ -45,62 +46,85 @@ function App() {
     updateNotes(techId, newNotes)
   }
 
-  const filteredTechnologies = technologies.filter((tech) => {
-    const matchesFilter = filter === 'all' ? true : tech.status === filter
-    const query = search.trim().toLowerCase()
-    const matchesSearch =
-      query.length === 0 ||
-      tech.title.toLowerCase().includes(query) ||
-      tech.description.toLowerCase().includes(query)
-    return matchesFilter && matchesSearch
-  })
+  const handleAddTechnology = (payload) => {
+    const nextId = technologies.length > 0 ? Math.max(...technologies.map((tech) => tech.id)) + 1 : 1
+    setTechnologies((prev) => [
+      ...prev,
+      {
+        id: nextId,
+        title: payload.title,
+        description: payload.description,
+        status: payload.status ?? 'not-started',
+        notes: payload.notes ?? '',
+        category: payload.category ?? 'frontend',
+      },
+    ])
+  }
+
+  const handleClearStorage = () => {
+    if (typeof window !== 'undefined') {
+      window.localStorage.removeItem('technologies')
+    }
+    setTechnologies(initialTechnologies.map((tech) => ({ ...tech })))
+  }
 
   return (
-    <main className="app">
-      <header className="app__header">
-        <h1>To Do List</h1>
-      </header>
-
-      <QuickActions
-        onCompleteAll={handleCompleteAll}
-        onResetAll={handleResetAll}
-        onPickRandom={handlePickRandom}
-      />
-
-      <div className="app__search">
-        <input
-          type="text"
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
-          placeholder="Поиск по названию или описанию..."
+    <div className="app-layout">
+      <Navigation />
+      <div className="app">
+        <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              total={total}
+              completed={completed}
+              completion={completion}
+              statusCounts={statusCounts}
+            />
+          }
         />
-        <span className="app__search-count">Найдено: {filteredTechnologies.length}</span>
+        <Route
+          path="/technologies"
+          element={
+            <TechnologyList
+              technologies={technologies}
+              statusCounts={statusCounts}
+              onStatusChange={handleStatusChange}
+              onNotesChange={updateTechnologyNotes}
+              onCompleteAll={handleCompleteAll}
+              onResetAll={handleResetAll}
+              onPickRandom={handlePickRandom}
+            />
+          }
+        />
+        <Route
+          path="/technologies/:id"
+          element={
+            <TechnologyDetail
+              technologies={technologies}
+              onStatusChange={handleStatusChange}
+              onNotesChange={updateTechnologyNotes}
+            />
+          }
+        />
+        <Route
+          path="/add-technology"
+          element={<AddTechnology onAddTechnology={handleAddTechnology} />}
+        />
+        <Route
+          path="/statistics"
+          element={<Statistics progress={completion} statusCounts={statusCounts} />}
+        />
+        <Route
+          path="/settings"
+          element={
+            <Settings onReset={handleResetAll} onClearStorage={handleClearStorage} total={total} />
+          }
+        />
+        </Routes>
       </div>
-
-      <ProgressHeader
-        total={total}
-        completed={completed}
-        completion={completion}
-        statusCounts={statusCounts}
-      />
-
-      <FilterTabs value={filter} onChange={setFilter} />
-
-      <section className="app__grid">
-        {filteredTechnologies.map((tech) => (
-          <TechnologyCard
-            key={tech.id}
-            id={tech.id}
-            title={tech.title}
-            description={tech.description}
-            status={tech.status}
-            notes={tech.notes}
-            onNotesChange={updateTechnologyNotes}
-            onStatusChange={handleStatusChange}
-          />
-        ))}
-      </section>
-    </main>
+    </div>
   )
 }
 
