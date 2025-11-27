@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import TechnologyCard from './components/TechnologyCard'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const technologies = [
+  {
+    id: 1,
+    title: 'React Components',
+    description: 'Изучение базовых компонентов и композиции.',
+    status: 'completed',
+  },
+  {
+    id: 2,
+    title: 'JSX Syntax',
+    description: 'Освоение синтаксиса JSX и выражений в шаблонах.',
+    status: 'in-progress',
+  },
+  {
+    id: 3,
+    title: 'State Management',
+    description: 'Работа с состоянием компонентов и хуками.',
+    status: 'not-started',
+  },
+]
 
+function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main className="app">
+      <header className="app__header">
+        <h1>Технологии проекта</h1>
+        <p>Быстрый обзор стека, который мы используем.</p>
+      </header>
+
+      <section className="app__grid">
+        {technologies.map((tech) => (
+          <TechnologyCard key={tech.id} title={tech.title} description={tech.description} status={tech.status} />
+        ))}
+      </section>
+    </main>
   )
 }
 
 export default App
+
