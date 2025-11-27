@@ -1,86 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import TechnologyCard from './components/TechnologyCard/TechnologyCard'
 import ProgressHeader from './components/ProgressHeader/ProgressHeader'
 import QuickActions from './components/QuickActions/QuickActions'
 import FilterTabs from './components/FilterTabs/FilterTabs'
+import useTechnologies, { initialTechnologies } from './hooks/useTechnologies'
 import './App.css'
 
-const initialTechnologies = [
-  {
-    id: 1,
-    title: 'React Components',
-    description: 'Изучение базовых компонентов и композиции.',
-    status: 'completed',
-    notes: '',
-  },
-  {
-    id: 2,
-    title: 'JSX Syntax',
-    description: 'Освоение синтаксиса JSX и выражений в шаблонах.',
-    status: 'in-progress',
-    notes: '',
-  },
-  {
-    id: 3,
-    title: 'State Management',
-    description: 'Работа с состоянием компонентов и хуками.',
-    status: 'not-started',
-    notes: '',
-  },
-  {
-    id: 4,
-    title: 'React Router',
-    description: 'Настройка клиентского роутинга и защищённых маршрутов.',
-    status: 'not-started',
-    notes: '',
-  },
-  {
-    id: 5,
-    title: 'Form Handling',
-    description: 'Работа с управляемыми формами и валидацией.',
-    status: 'in-progress',
-    notes: '',
-  },
-  {
-    id: 6,
-    title: 'Testing Library',
-    description: 'Написание модульных тестов для компонентов.',
-    status: 'not-started',
-    notes: '',
-  },
-  {
-    id: 7,
-    title: 'Performance Optimization',
-    description: 'Мемоизация, code-splitting и оптимизация рендеров.',
-    status: 'not-started',
-    notes: '',
-  },
-]
-
 function App() {
-  const [technologies, setTechnologies] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const saved = window.localStorage.getItem('techTrackerData')
-      if (saved) {
-        try {
-          const parsed = JSON.parse(saved)
-          if (Array.isArray(parsed)) {
-            console.log('Данные загружены из localStorage')
-            return parsed.map((tech) => ({ ...tech, notes: tech.notes ?? '' }))
-          }
-        } catch {
-          console.warn('Не удалось прочитать данные из localStorage')
-        }
-      }
-    }
-    return initialTechnologies.map((tech) => ({ ...tech }))
-  })
+  const { technologies, setTechnologies, updateStatus, updateNotes, progress } = useTechnologies()
   const [filter, setFilter] = useState('all')
   const [search, setSearch] = useState('')
 
   const total = technologies.length
   const completed = technologies.filter((tech) => tech.status === 'completed').length
-  const completion = total === 0 ? 0 : Math.round((completed / total) * 100)
+  const completion = progress
   const statusCounts = {
     'not-started': technologies.filter((tech) => tech.status === 'not-started').length,
     'in-progress': technologies.filter((tech) => tech.status === 'in-progress').length,
@@ -88,9 +21,7 @@ function App() {
   }
 
   const handleStatusChange = (id, nextStatus) => {
-    setTechnologies((prev) =>
-      prev.map((tech) => (tech.id === id ? { ...tech, status: nextStatus } : tech)),
-    )
+    updateStatus(id, nextStatus)
   }
 
   const handleCompleteAll = () => {
@@ -111,16 +42,8 @@ function App() {
   }
 
   const updateTechnologyNotes = (techId, newNotes) => {
-    setTechnologies((prev) =>
-      prev.map((tech) => (tech.id === techId ? { ...tech, notes: newNotes } : tech)),
-    )
+    updateNotes(techId, newNotes)
   }
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    window.localStorage.setItem('techTrackerData', JSON.stringify(technologies))
-    console.log('Данные сохранены в localStorage')
-  }, [technologies])
 
   const filteredTechnologies = technologies.filter((tech) => {
     const matchesFilter = filter === 'all' ? true : tech.status === filter
