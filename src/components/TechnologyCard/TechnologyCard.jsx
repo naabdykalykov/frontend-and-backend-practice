@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import './TechnologyCard.css'
 
 const STATUS_PRESETS = {
@@ -18,18 +17,16 @@ const STATUS_PRESETS = {
 
 const STATUS_ORDER = ['not-started', 'in-progress', 'completed']
 
-function TechnologyCard({ title, description, status = 'not-started' }) {
-  const [currentStatus, setCurrentStatus] = useState(status)
-  const config = STATUS_PRESETS[currentStatus] ?? STATUS_PRESETS['not-started']
-
-  useEffect(() => {
-    setCurrentStatus(status)
-  }, [status])
+function TechnologyCard({ id, title, description, status = 'not-started', onStatusChange }) {
+  const config = STATUS_PRESETS[status] ?? STATUS_PRESETS['not-started']
 
   const handleClick = () => {
-    const index = STATUS_ORDER.indexOf(currentStatus)
+    const index = STATUS_ORDER.indexOf(status)
     const nextIndex = (index + 1) % STATUS_ORDER.length
-    setCurrentStatus(STATUS_ORDER[nextIndex])
+    const nextStatus = STATUS_ORDER[nextIndex]
+    if (typeof onStatusChange === 'function') {
+      onStatusChange(id, nextStatus)
+    }
   }
 
   return (

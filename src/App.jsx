@@ -54,6 +54,12 @@ function App() {
   const completed = technologies.filter((tech) => tech.status === 'completed').length
   const completion = total === 0 ? 0 : Math.round((completed / total) * 100)
 
+  const handleStatusChange = (id, nextStatus) => {
+    setTechnologies((prev) =>
+      prev.map((tech) => (tech.id === id ? { ...tech, status: nextStatus } : tech)),
+    )
+  }
+
   return (
     <main className="app">
       <header className="app__header">
@@ -65,7 +71,14 @@ function App() {
 
       <section className="app__grid">
         {technologies.map((tech) => (
-          <TechnologyCard key={tech.id} title={tech.title} description={tech.description} status={tech.status} />
+          <TechnologyCard
+            key={tech.id}
+            id={tech.id}
+            title={tech.title}
+            description={tech.description}
+            status={tech.status}
+            onStatusChange={handleStatusChange}
+          />
         ))}
       </section>
     </main>
