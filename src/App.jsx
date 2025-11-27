@@ -76,6 +76,7 @@ function App() {
     return initialTechnologies.map((tech) => ({ ...tech }))
   })
   const [filter, setFilter] = useState('all')
+  const [search, setSearch] = useState('')
 
   const total = technologies.length
   const completed = technologies.filter((tech) => tech.status === 'completed').length
@@ -122,8 +123,13 @@ function App() {
   }, [technologies])
 
   const filteredTechnologies = technologies.filter((tech) => {
-    if (filter === 'all') return true
-    return tech.status === filter
+    const matchesFilter = filter === 'all' ? true : tech.status === filter
+    const query = search.trim().toLowerCase()
+    const matchesSearch =
+      query.length === 0 ||
+      tech.title.toLowerCase().includes(query) ||
+      tech.description.toLowerCase().includes(query)
+    return matchesFilter && matchesSearch
   })
 
   return (
@@ -138,6 +144,16 @@ function App() {
         onResetAll={handleResetAll}
         onPickRandom={handlePickRandom}
       />
+
+      <div className="app__search">
+        <input
+          type="text"
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+          placeholder="Поиск по названию или описанию..."
+        />
+        <span className="app__search-count">Найдено: {filteredTechnologies.length}</span>
+      </div>
 
       <ProgressHeader
         total={total}
