@@ -58,8 +58,7 @@ function App() {
   return (
     <main className="app">
       <header className="app__header">
-        <h1>Технологии проекта</h1>
-        <p>Быстрый обзор стека, который мы используем.</p>
+        <h1>To Do List</h1>
       </header>
 
       <QuickActions
